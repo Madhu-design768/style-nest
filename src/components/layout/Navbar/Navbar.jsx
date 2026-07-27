@@ -1,10 +1,6 @@
 import { Search, Heart, ShoppingCart, User, Menu } from "lucide-react";
 import NavLinks from "./NavLinks";
 
-/**
- * Navbar Component
- * Displays logo, navigation links and action icons.
- */
 
 const Navbar = () => {
   return (
@@ -28,7 +24,7 @@ const Navbar = () => {
         <div className="flex items-center gap-5">
           <Search
             size={22}
-            className="cursor-pointer hover:text-[var(--color-accent)] transition-colors"
+            className="cursor-pointer hover:text-[var(--color-accent)] transitio0n-colors"
           />
 
           <Heart

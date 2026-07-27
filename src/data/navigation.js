@@ -1,4 +1,4 @@
-const navigation = [
+export const navigation = [
   {
     id: 1,
     label: "Home",
@@ -9,26 +9,42 @@ const navigation = [
     label: "Shop",
     path: "/shop",
   },
+];
+
+export const categoryNavigation = [
   {
-    id: 3,
-    label: "Men",
+    id: 1,
+    label: "NEW ARRIVALS",
+    path: "/new-arrivals",
+  },
+  {
+    id: 2,
+    label: "MEN",
     path: "/men",
   },
   {
-    id: 4,
-    label: "Women",
+    id: 3,
+    label: "WOMEN",
     path: "/women",
   },
   {
+    id: 4,
+    label: "KIDS",
+    path: "/kids",
+  },
+  {
     id: 5,
-    label: "Sale",
-    path: "/sale",
+    label: "SHOES",
+    path: "/shoes",
   },
   {
     id: 6,
-    label: "Contact",
-    path: "/contact",
+    label: "ACCESSORIES",
+    path: "/accessories",
+  },
+  {
+    id: 7,
+    label: "SALE",
+    path: "/sale",
   },
 ];
-
-export default navigation;

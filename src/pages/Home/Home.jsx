@@ -1,17 +1,12 @@
 import MainLayout from "../../layouts/MainLayout";
+import Hero from "../../components/home/Hero";
+import Brands from "../../components/home/Brands";
 
 const Home = () => {
   return (
     <MainLayout>
-      <div className="h-screen flex items-center justify-center">
-
-        <h1 className="text-5xl font-bold">
-
-          StyleNest
-
-        </h1>
-
-      </div>
+      <Hero />
+      <Brands />
     </MainLayout>
   );
 };

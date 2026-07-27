@@ -1,9 +1,4 @@
-/**
- * Component: Container
- * Description: Provides consistent width and horizontal spacing
- * across the entire application.
- */
-
+ 
 const Container = ({ children, className = "" }) => {
   return (
     <div

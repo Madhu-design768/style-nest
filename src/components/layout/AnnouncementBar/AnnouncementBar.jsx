@@ -2,7 +2,7 @@
 
 const AnnouncementBar = () => {
   return (
-    <div className="bg-[var(--color-primary)] text-white">
+    <div className="bg-[#1F4D3A] text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-10 flex items-center justify-center md:justify-between text-sm">
 
         <div className="hidden md:flex items-center gap-2">

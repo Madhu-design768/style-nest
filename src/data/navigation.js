@@ -9,42 +9,39 @@ export const navigation = [
     label: "Shop",
     path: "/shop",
   },
-];
-
-export const categoryNavigation = [
   {
-    id: 1,
-    label: "NEW ARRIVALS",
+    id: 3,
+    label: "New Arrivals",
     path: "/new-arrivals",
   },
   {
-    id: 2,
-    label: "MEN",
+    id: 4,
+    label: "Men",
     path: "/men",
   },
   {
-    id: 3,
-    label: "WOMEN",
+    id: 5,
+    label: "Women",
     path: "/women",
   },
   {
-    id: 4,
-    label: "KIDS",
+    id: 6,
+    label: "Kids",
     path: "/kids",
   },
   {
-    id: 5,
-    label: "SHOES",
+    id: 7,
+    label: "Shoes",
     path: "/shoes",
   },
   {
-    id: 6,
-    label: "ACCESSORIES",
+    id: 8,
+    label: "Accessories",
     path: "/accessories",
   },
   {
-    id: 7,
-    label: "SALE",
+    id: 9,
+    label: "Sale",
     path: "/sale",
   },
 ];

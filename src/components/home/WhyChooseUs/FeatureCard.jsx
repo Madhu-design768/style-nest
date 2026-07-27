@@ -1,27 +1,26 @@
-/**
- * Feature Card Component
- */
-
 const FeatureCard = ({ feature }) => {
   const Icon = feature.icon;
 
   return (
-    <div className="rounded-3xl bg-white p-8 text-center shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+    <div className="group rounded-3xl bg-white p-8 lg:p-10 text-center shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl h-full">
 
-      <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-[var(--color-accent)]/10">
+      {/* Icon Container */}
+      <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-[var(--color-accent)]/10 group-hover:bg-[var(--color-accent)] transition-all duration-300">
 
         <Icon
           size={32}
-          className="text-[var(--color-accent)]"
+          className="text-[var(--color-accent)] group-hover:text-white transition-colors duration-300"
         />
 
       </div>
 
-      <h3 className="mb-3 text-2xl font-semibold text-[var(--color-heading)]">
+      {/* Title */}
+      <h3 className="mb-3 text-xl lg:text-2xl font-bold text-[var(--color-heading)] group-hover:text-[var(--color-accent)] transition-colors duration-300">
         {feature.title}
       </h3>
 
-      <p className="text-gray-500">
+      {/* Description */}
+      <p className="text-gray-500 leading-relaxed">
         {feature.description}
       </p>
 

@@ -1,7 +1,8 @@
 import AnnouncementBar from "../components/layout/AnnouncementBar";
 import Navbar from "../components/layout/Navbar";
-import CategoryNav from "../components/layout/CategoryNav";
-import Footer from "../components/layout/Footer";
+import MobileBottomNav from "../components/layout/MobileBottomNav";
+// import CategoryNav from "../components/layout/CategoryNav";
+// import Footer from "../components/layout/Footer";
 
 const MainLayout = ({ children }) => {
   return (
@@ -10,11 +11,11 @@ const MainLayout = ({ children }) => {
 
       <Navbar />
 
-      <CategoryNav />
+      <main className="pb-16 lg:pb-0">{children}</main>
 
-      <main>{children}</main>
+      <MobileBottomNav />
 
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

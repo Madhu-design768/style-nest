@@ -4,6 +4,7 @@ import Brands from "../../components/home/Brands";
 import Categories from "../../components/home/Categories";
 import FeaturedProducts from "../../components/home/FeaturedProducts";
 import PromoBanner from "../../components/home/PromoBanner";
+import WhyChooseUs from "../../components/home/WhyChooseUs";
 const Home = () => {
   return (
     <MainLayout>
@@ -12,6 +13,7 @@ const Home = () => {
        <Categories />
        <FeaturedProducts />
         <PromoBanner />
+         <WhyChooseUs />
     </MainLayout>
   );
 };

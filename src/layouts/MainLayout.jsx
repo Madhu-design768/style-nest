@@ -1,5 +1,6 @@
 import AnnouncementBar from "../components/layout/AnnouncementBar";
 import Navbar from "../components/layout/Navbar";
+import Footer from "../components/layout/Footer";
 
 const MainLayout = ({ children }) => {
   return (
@@ -8,6 +9,7 @@ const MainLayout = ({ children }) => {
       <Navbar />
 
       <main>{children}</main>
+      <Footer/>
     </>
   );
 };

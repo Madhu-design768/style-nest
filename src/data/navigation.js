@@ -9,11 +9,7 @@ export const navigation = [
     label: "Shop",
     path: "/shop",
   },
-  {
-    id: 3,
-    label: "New Arrivals",
-    path: "/new-arrivals",
-  },
+ 
   {
     id: 4,
     label: "Men",

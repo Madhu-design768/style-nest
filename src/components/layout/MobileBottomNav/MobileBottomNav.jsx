@@ -11,20 +11,20 @@ const MobileBottomNav = () => {
 
   return (
     <nav className="fixed bottom-0 left-0 right-0 z-50 border-t border-gray-200 bg-white shadow-lg lg:hidden">
-      <div className="flex h-10 items-center justify-around">
+      <div className="flex h-16 items-center justify-around">
         {navItems.map((item) => (
           <NavLink
             key={item.label}
             to={item.path}
             className={({ isActive }) =>
-              `flex flex-1 flex-col items-center justify-center gap-1 py-2 transition-colors ${
+              `flex flex-1 flex-col items-center justify-center gap-1 py-2 transition-all duration-200 ${
                 isActive
                   ? "text-[var(--color-accent)]"
-                  : "text-gray-500"
+                  : "text-gray-500 hover:text-[var(--color-accent)]"
               }`
             }
           >
-            <item.icon size={22} />
+            <item.icon size={20} />
             <span className="text-xs">{item.label}</span>
           </NavLink>
         ))}

@@ -1,35 +1,28 @@
-/**
- * HeroContent Component
- * Displays heading, description and CTA buttons.
- */
-
 const HeroContent = () => {
   return (
-    <div className="flex-1 space-y-6">
-      <span className="inline-block bg-amber-100 text-amber-700 px-4 py-1 rounded-full text-sm font-semibold">
-        NEW ARRIVALS
-      </span>
+    <div className="flex-1 pl-2 sm:pl-6 lg:pl-10 lg:pr-12">
 
-      <h1 className="text-5xl lg:text-6xl font-bold leading-tight text-[var(--color-primary)]">
-        Elevate Your <br />
-        Style With{" "}
-        <span className="text-[var(--color-accent)]">Premium Fashion</span>
+      {/* Heading */}
+      <h1 className="text-4xl font-bold leading-tight text-[var(--color-heading)] sm:text-5xl lg:text-6xl">
+        Elevate Your
+        <span className="block text-[var(--color-accent)]">
+          Everyday Style
+        </span>
       </h1>
 
-      <p className="text-gray-600 text-lg max-w-xl">
-        Discover timeless fashion curated for modern lifestyles. Shop the latest
-        trends with confidence.
+      {/* Description */}
+      <p className="mt-6 max-w-lg text-lg leading-8 text-[var(--color-text)]">
+        Discover premium clothing designed for comfort, quality, and timeless
+        fashion. Find your perfect look for every occasion.
       </p>
 
-      <div className="flex flex-col sm:flex-row gap-4">
-        <button className="bg-[#111827] text-white px-7 py-4 rounded-xl font-semibold hover:bg-black transition duration-300">
-          Shop Now
-        </button>
-
-        <button className="border border-gray-300 px-7 py-4 rounded-xl font-semibold hover:bg-gray-100 transition duration-300">
-          Explore Collection
-        </button>
+      {/* Features */}
+      <div className="mt-10 flex flex-wrap items-center gap-6 text-sm text-[var(--color-text)]">
+        <span>✓ Free Shipping</span>
+        <span>✓ Easy Returns</span>
+        <span>✓ Premium Quality</span>
       </div>
+
     </div>
   );
 };

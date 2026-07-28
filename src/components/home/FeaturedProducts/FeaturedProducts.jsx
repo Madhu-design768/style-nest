@@ -8,38 +8,32 @@ import products from "../../../data/products";
 const FeaturedProducts = () => {
   return (
     <section className="bg-white py-24">
-
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
-        <div className="mb-16 text-center">
-
-          <p className="font-semibold uppercase tracking-[4px] text-[var(--color-accent)]">
+        {/* Section Heading */}
+        <div className="mb-20 text-center">
+          <span className="inline-block font-semibold uppercase tracking-[0.2em] text-[var(--color-accent)] text-sm">
             Featured Products
-          </p>
-
-          <h2 className="mt-4 text-4xl font-bold text-[var(--color-heading)] lg:text-5xl">
+          </span>
+          <h2 className="mt-6 text-4xl lg:text-5xl xl:text-6xl font-bold text-[var(--color-heading)] leading-tight">
             Trending Collection
           </h2>
-
-          <p className="mt-4 text-lg text-gray-500">
-            Discover our handpicked fashion essentials.
+          <p className="mt-4 text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed">
+            Discover our handpicked fashion essentials crafted for the modern individual.
           </p>
-
         </div>
 
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-
+        {/* Products Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 lg:gap-10">
           {products.map((product) => (
             <ProductCard
               key={product.id}
               product={product}
             />
           ))}
-
         </div>
 
       </div>
-
     </section>
   );
 };

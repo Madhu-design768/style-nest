@@ -35,29 +35,26 @@
 
 
 
-::-webkit-scrollbar{
-
-  width:8px;
-
+::-webkit-scrollbar {
+  width: 8px;
 }
 
-::-webkit-scrollbar-thumb{
-
-  background:#C08457;
-
-  border-radius:20px;
-
+::-webkit-scrollbar-thumb {
+  background: #D1D5DB; 
+  border-radius: 20px;
 }
 
-::-webkit-scrollbar-track{
+::-webkit-scrollbar-thumb:hover {
+  background: #9CA3AF; 
+}
 
-  background:#f5f5f5;
-
+::-webkit-scrollbar-track {
+  background: #F3F4F6;
 }
 
 * {
   margin: 0;
-  padding: 0;
+  /* padding: 0; */
   box-sizing: border-box;
 }
 

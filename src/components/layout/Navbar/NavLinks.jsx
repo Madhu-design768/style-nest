@@ -1,11 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { navigation } from "../../../data/navigation";
 
-/**
- * NavLinks Component
- * Renders all desktop navigation links.
- */
-
 const NavLinks = () => {
   return (
     <ul className="hidden lg:flex items-center gap-8">
@@ -14,7 +9,7 @@ const NavLinks = () => {
           <NavLink
             to={item.path}
             className={({ isActive }) =>
-              `font-medium transition-colors duration-200 ${
+              `relative pb-1 text-sm font-semibold uppercase tracking-wide transition-all duration-300 ${
                 isActive
                   ? "text-[var(--color-accent)]"
                   : "text-[var(--color-primary)] hover:text-[var(--color-accent)]"

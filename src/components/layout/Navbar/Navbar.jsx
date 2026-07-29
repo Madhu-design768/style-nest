@@ -23,8 +23,18 @@ const Navbar = () => {
     <header className="sticky top-0 z-50 bg-white shadow-sm relative">
       <div className="mx-auto flex h-20 max-w-7xl items-center px-4 sm:px-6 lg:px-8">
         {/* Mobile Menu */}
-        <button className="lg:hidden" onClick={() => setIsDrawerOpen(true)}>
+        {/* <button className="lg:hidden" onClick={() => setIsDrawerOpen(true)}>
           <Menu size={24} className="mr-2" />
+        </button> */}
+
+        {/* Mobile Menu */}
+        <button
+          className="lg:hidden mr-2 flex flex-col justify-center gap-1.5"
+          onClick={() => setIsDrawerOpen(true)}
+        >
+          <span className="h-[2px] w-8 rounded-full bg-[var(--color-primary)]"></span>
+          <span className="h-[2px] w-6 rounded-full bg-[var(--color-primary)]"></span>
+          <span className="h-[2px] w-4 rounded-full bg-[var(--color-primary)]"></span>
         </button>
 
         {/* Logo */}
@@ -99,12 +109,11 @@ const Navbar = () => {
               showSearch ? "w-56 opacity-100 pl-3" : "w-0 opacity-0"
             }`}
           >
-            
             <input
               autoFocus
               type="text"
               placeholder="Search products..."
-              className="w-full rounded-full border border-gray-300 py-1 pl-8 pr-4 text-sm outline-none focus:border-[var(--color-accent)]"
+              className="w-full rounded-full border  py-1 pl-8 pr-4 text-sm outline-none focus:border-[var(--color-accent)]"
             />
           </div>
 

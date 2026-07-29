@@ -2,7 +2,7 @@ const FeatureCard = ({ feature }) => {
   const Icon = feature.icon;
 
   return (
-    <div className="group rounded-3xl bg-white p-8 lg:p-10 text-center shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl h-full">
+    <div className="mt-4 pt-6 pb-12 group rounded-3xl bg-white p-8 lg:p-10 text-center shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl h-full">
 
       {/* Icon Container */}
       <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-[var(--color-accent)]/10 group-hover:bg-[var(--color-accent)] transition-all duration-300">

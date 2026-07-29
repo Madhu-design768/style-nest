@@ -7,18 +7,18 @@ import products from "../../../data/products";
 
 const FeaturedProducts = () => {
   return (
-    <section className="bg-white py-24">
+    <section className="bg-white py-24 mt-4 pt-6 pb-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
         {/* Section Heading */}
-        <div className="mb-20 text-center">
-          <span className="inline-block font-semibold uppercase tracking-[0.2em] text-[var(--color-accent)] text-sm">
+        <div className="mb-12 text-center">
+          <span className="inline-block font-semibold uppercase tracking-[0.2em] text-[var(--color-accent)] text-xl mt-4 pt-4 pb-2">
             Featured Products
           </span>
-          <h2 className="mt-6 text-4xl lg:text-5xl xl:text-6xl font-bold text-[var(--color-heading)] leading-tight">
+          <h2 className="mt-4 pt-1 pb-4 text-4xl lg:text-5xl xl:text-6xl font-bold text-[var(--color-heading)] leading-tight">
             Trending Collection
           </h2>
-          <p className="mt-4 text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-4 pt-1 pb-4 text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed">
             Discover our handpicked fashion essentials crafted for the modern individual.
           </p>
         </div>

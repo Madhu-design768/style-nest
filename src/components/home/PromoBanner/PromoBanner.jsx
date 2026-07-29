@@ -11,15 +11,15 @@ const PromoBanner = () => {
           {/* Left Content */}
           <div className="flex-1 text-center lg:text-left">
 
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-accent)]">
+            <p className="text-sm mt-4 pt-1 pb-4 font-semibold uppercase tracking-[0.2em] text-[var(--color-accent)]">
               Summer Collection 2026
             </p>
 
-            <h2 className="mt-6 text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight text-white">
+            <h2 className="mt-4 pt-1 pb-4 text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight text-white">
               Up To 50% Off
             </h2>
 
-            <p className="mt-6 max-w-xl text-lg text-gray-300 leading-relaxed">
+            <p className="mt-4 pt-1 pb-4 max-w-xl text-lg text-gray-300 leading-relaxed">
               Discover premium fashion essentials designed for every season. 
               Refresh your wardrobe with timeless styles and exclusive offers.
             </p>

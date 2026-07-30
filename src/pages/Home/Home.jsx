@@ -5,22 +5,18 @@ import Categories from "../../components/home/Categories";
 import FeaturedProducts from "../../components/home/FeaturedProducts";
 import PromoBanner from "../../components/home/PromoBanner";
 import WhyChooseUs from "../../components/home/WhyChooseUs";
-import Newsletter from "../../components/home/Newsletter";
-import Footer from "../../components/layout/Footer";
 
 const Home = () => {
   return (
     <MainLayout>
       <Hero />
       <Brands />
-       <Categories />
-       <FeaturedProducts />
-        <PromoBanner />
-         <WhyChooseUs />
-         <Newsletter />
-         <Footer/>
+      <Categories />
+      <FeaturedProducts />
+      <PromoBanner />
+      <WhyChooseUs />
+      {/* <Newsletter /> */}
     </MainLayout>
-    
   );
 };
 

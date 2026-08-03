@@ -7,7 +7,7 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="bg-[var(--color-primary)] mt-28 border-t border-white/10  text-white">
+    <footer className="bg-[var(--color-primary)] border-t border-white/10  text-white">
       {/* Top Footer */}
       <div className="mx-auto grid max-w-7xl gap-12 px-4 py-20 sm:grid-cols-2 lg:grid-cols-4">
         {/* Logo */}

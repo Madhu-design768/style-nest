@@ -3,15 +3,15 @@ const FeatureCard = ({ feature }) => {
 
   return (
     <div className="mt-4 pt-6 pb-12 group rounded-3xl bg-white p-8 lg:p-10 text-center shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl h-full">
-
       {/* Icon Container */}
-      <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-[var(--color-accent)]/10 group-hover:bg-[var(--color-accent)] transition-all duration-300">
 
-        <Icon
-          size={32}
-          className="text-[var(--color-accent)] group-hover:text-white transition-colors duration-300"
-        />
-
+      <div className="mb-6 flex justify-center">
+        <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[var(--color-accent)]/10 transition-all duration-300 group-hover:bg-[var(--color-accent)]">
+          <Icon
+            size={32}
+            className="text-[var(--color-accent)] transition-colors duration-300 group-hover:text-white"
+          />
+        </div>
       </div>
 
       {/* Title */}
@@ -20,10 +20,7 @@ const FeatureCard = ({ feature }) => {
       </h3>
 
       {/* Description */}
-      <p className="text-gray-500 leading-relaxed">
-        {feature.description}
-      </p>
-
+      <p className="text-gray-500 leading-relaxed">{feature.description}</p>
     </div>
   );
 };

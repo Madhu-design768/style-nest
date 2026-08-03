@@ -11,7 +11,7 @@ const PromoBanner = () => {
           {/* Left Content */}
           <div className="flex-1 text-center lg:text-left">
 
-            <p className="text-sm mt-4 pt-1 pb-4 font-semibold uppercase tracking-[0.2em] text-[var(--color-accent)]">
+            <p className="text-xl mt-4 pt-1 pb-4 font-semibold uppercase tracking-[0.2em] text-[var(--color-accent)]">
               Summer Collection 2026
             </p>
 

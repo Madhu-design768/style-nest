@@ -1,21 +1,66 @@
+import { useEffect, useState } from "react";
 
-const HeroImage = () => {
+const HeroImage = ({ slides }) => {
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % slides.length);
+    }, 4000);
+
+    return () => clearInterval(timer);
+  }, [slides.length]);
+
   return (
-    <div className="flex-1 relative flex items-center">
-      {/* Main Image Container */}
-      <div className="relative max-w-lg lg:max-w-xl xl:max-w-2xl mx-auto lg:mx-0 w-full">
-        <img
-          src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=80"
-          alt="Fashion Model"
-          className="w-full h-auto max-h-[550px] lg:max-h-[650px] xl:max-h-[700px] object-cover rounded-[2.5rem] shadow-2xl animate-fade-in"
-        />
-        <div className="hidden lg:block absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%]">
-          <div className="w-3 h-3 bg-[var(--color-accent)]/20 rounded-full absolute top-0 left-1/4 animate-pulse"></div>
-          <div className="w-2 h-2 bg-[var(--color-primary)]/20 rounded-full absolute bottom-0 right-1/4 animate-pulse animation-delay-100"></div>
-          <div className="w-2.5 h-2.5 bg-[var(--color-accent)]/20 rounded-full absolute top-1/3 right-0 animate-pulse animation-delay-200"></div>
+    <section className="relative h-[92vh] w-full overflow-hidden">
+      {/* Background Image */}
+      <img
+        src={slides[current].image}
+        alt={slides[current].title}
+        className="absolute inset-0 h-full w-full object-cover transition-all duration-700"
+      />
+
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-black/35"></div>
+
+      {/* Content */}
+      <div className="absolute inset-0 flex items-center">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="max-w-xl text-white">
+            <p className="mb-4 uppercase tracking-[0.3em] text-sm text-[var(--color-accent)]">
+              StyleNest Collection
+            </p>
+
+            <h1 className="text-5xl font-bold leading-tight lg:text-7xl">
+              {slides[current].title}
+            </h1>
+
+            <p className="mt-6 text-lg text-gray-200">
+              {slides[current].subtitle}
+            </p>
+
+            <button className="mt-10 rounded-full bg-[var(--color-accent)] px-8 py-4 font-semibold text-white transition hover:scale-105">
+              Shop Now
+            </button>
+          </div>
         </div>
       </div>
-    </div>
+
+      {/* Dots */}
+      <div className="absolute bottom-8 left-1/2 flex -translate-x-1/2 gap-3">
+        {slides.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrent(index)}
+            className={`transition-all duration-300 ${
+              current === index
+                ? "h-3 w-8 rounded-full bg-[var(--color-accent)]"
+                : "h-3 w-3 rounded-full bg-white/60"
+            }`}
+          />
+        ))}
+      </div>
+    </section>
   );
 };
 

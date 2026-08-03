@@ -3,21 +3,21 @@ import features from "../../../data/features";
 
 const WhyChooseUs = () => {
   return (
-    <section className="bg-[var(--color-section)] py-24">
+    <section className="mt-4 pt-6 pb-12 bg-[var(--color-section)] py-24">
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
         <div className="mb-20 text-center">
 
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-accent)]">
+          <p className="text-xl font-semibold uppercase tracking-[0.2em] text-[var(--color-accent)]">
             Why Choose Us
           </p>
 
-          <h2 className="mt-4 text-4xl lg:text-5xl xl:text-6xl font-bold text-[var(--color-heading)] leading-tight">
+          <h2 className="mt-4 pt-1 pb-4 text-4xl lg:text-5xl xl:text-6xl font-bold text-[var(--color-heading)] leading-tight">
             Designed For Your Lifestyle
           </h2>
 
-          <p className="mt-4 text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed">
+          <p className="mt-4 pt-1 pb-4 text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed">
             Fashion with quality, comfort and trusted service for every occasion.
           </p>
 

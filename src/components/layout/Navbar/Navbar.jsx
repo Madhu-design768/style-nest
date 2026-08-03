@@ -129,20 +129,6 @@ const Navbar = () => {
 
         {/* Desktop Right Icons */}
         <div className="hidden lg:flex flex-1 items-center justify-end gap-2">
-          {/* Search Box */}
-          {/* <div
-            className={`relative overflow-hidden transition-all duration-300 ease-in-out ${
-              showSearch ? "w-56 opacity-100 pl-3" : "w-0 opacity-0"
-            }`}
-          >
-            <input
-              autoFocus
-              type="text"
-              placeholder="Search products..."
-              className="w-full rounded-full border  py-1 pl-8 pr-4 text-sm outline-none focus:border-[var(--color-accent)]"
-            />
-          </div> */}
-
           {/* Search Icon */}
           {!isShopPage && (
             <button onClick={() => setShowSearch(!showSearch)}>
@@ -169,7 +155,7 @@ const Navbar = () => {
                   }
                 }}
                 placeholder="Search..."
-                className="h-10 w-64 rounded-lg border border-[var(--color-border)] bg-white pl-9 pr-4 text-sm text-[var(--color-heading)] placeholder:text-gray-400 transition-colors hover:border-[var(--color-accent)] focus:border-[var(--color-accent)] focus:outline-none focus:ring-1 focus:ring-[var(--color-accent)]"
+                className="h-10 w-64 rounded-3xl border border-[var(--color-border)] bg-white pl-9 pr-4 text-sm text-[var(--color-heading)] placeholder:text-gray-400 transition-colors hover:border-[var(--color-accent)] focus:border-[var(--color-accent)] focus:outline-none focus:ring-1 focus:ring-[var(--color-accent)]"
               />
             </div>
           )}
@@ -213,16 +199,16 @@ const Navbar = () => {
       {/* Desktop Search Bar */}
       <div
         className={`hidden lg:block overflow-hidden transition-all duration-500 ${
-          showSearch ? "max-h-24 opacity-100" : "max-h-0 opacity-0"
+          showSearch ? "max-h-20 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
         <div className="border-t border-gray-200 bg-white shadow-md">
-          <div className="mx-auto flex max-w-4xl justify-end items-center gap-4  py-4">
+          <div className="flex max-w-7xl justify-end items-center gap-2 py-4 px-4 sm:px-6 lg:px-8">
             <input
               autoFocus
               type="text"
               placeholder="Search products..."
-              className="flex-1 rounded-full border border-gray-300 px-5 py-3 outline-none focus:border-[var(--color-accent)]"
+              className="w-96 rounded-3xl border border-gray-300 px-5 py-3 outline-none focus:border-[var(--color-accent)]"
             />
 
             <button className="rounded-md bg-[var(--color-accent)] px-6 py-3 font-medium text-white">

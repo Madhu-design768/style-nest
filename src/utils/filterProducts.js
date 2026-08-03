@@ -14,6 +14,7 @@ const filterProducts = (products, filters) => {
       return false;
     }
 
+ 
     // Brand filter
     if (selectedBrands.length > 0 && product.brand && !selectedBrands.includes(product.brand)) {
       return false;

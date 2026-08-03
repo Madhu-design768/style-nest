@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ChevronDown, X } from "lucide-react";
+import { X, ChevronDown, ChevronUp } from "lucide-react";
 
 const FilterSidebar = ({
   filters = {},
@@ -35,12 +35,6 @@ const FilterSidebar = ({
     onApply = () => {},
   } = handlers;
 
-  const [openSection, setOpenSection] = useState(null);
-
-  const toggleSection = (section) => {
-    setOpenSection((prev) => (prev === section ? null : section));
-  };
-
   const toggleArrayItem = (array, setArray, item) => {
     if (array.includes(item)) {
       setArray(array.filter((i) => i !== item));
@@ -48,6 +42,12 @@ const FilterSidebar = ({
       setArray([...array, item]);
     }
   };
+
+  const [showAllCategories, setShowAllCategories] = useState(false);
+
+  const visibleCategories = showAllCategories
+    ? categories
+    : categories.slice(0, 5);
 
   const hasActiveFilters =
     selectedCategories.length > 0 ||
@@ -57,37 +57,82 @@ const FilterSidebar = ({
     selectedRating > 0 ||
     currentMaxPrice < maxPrice;
 
-  const sections = [
-    {
-      key: "categories",
-      title: "Categories",
-      content: (
+  return (
+    <div className="w-full rounded-2xl border border-[var(--color-border)] bg-white p-6 shadow-sm">
+      {/* Header */}
+      <div className="mb-4 flex items-center justify-end">
+        {hasActiveFilters && (
+          <button
+            type="button"
+            onClick={clearAll}
+            className="flex items-center gap-2 text-xs font-medium text-[var(--color-accent)] hover:underline"
+          >
+            <X className="h-3.5 w-3.5" />
+            Reset All
+          </button>
+        )}
+      </div>
+
+      {/* Categories */}
+      <div className="mb-5 border-b border-[var(--color-border)] pb-5">
+        {/* Heading */}
+        <h3 className="mb-8 text-sm font-semibold text-[var(--color-heading)]">
+          Categories
+        </h3>
+
+        {/* Categories List */}
         <div className="space-y-3">
-          {categories.map((category) => (
+          {visibleCategories.map((category) => (
             <label
               key={category}
-              className="flex items-center gap-3 text-sm text-[var(--color-text)] cursor-pointer"
+              className="flex cursor-pointer items-center gap-3 py-1 text-sm text-[var(--color-text)] transition-colors"
             >
               <input
                 type="checkbox"
                 checked={selectedCategories.includes(category)}
                 onChange={() =>
-                  toggleArrayItem(selectedCategories, setSelectedCategories, category)
+                  toggleArrayItem(
+                    selectedCategories,
+                    setSelectedCategories,
+                    category,
+                  )
                 }
                 className="h-4 w-4 rounded border-gray-300 text-[var(--color-accent)] focus:ring-[var(--color-accent)]"
               />
-              <span className="hover:text-[var(--color-accent)] transition-colors">
+
+              <span className="hover:text-[var(--color-accent)]">
                 {category}
               </span>
             </label>
           ))}
         </div>
-      ),
-    },
-    {
-      key: "price",
-      title: "Price",
-      content: (
+
+        {categories.length > 5 && (
+          <button
+            type="button"
+            onClick={() => setShowAllCategories(!showAllCategories)}
+            className="mt-4 flex items-center gap-1 text-sm font-medium text-[var(--color-accent)] hover:underline"
+          >
+            {showAllCategories ? (
+              <>
+                See Less
+                <ChevronUp className="h-4 w-4" />
+              </>
+            ) : (
+              <>
+                See All
+                <ChevronDown className="h-4 w-4" />
+              </>
+            )}
+          </button>
+        )}
+      </div>
+
+      {/* Price Range */}
+      <div className="mb-5 border-b border-[var(--color-border)] pb-10">
+        <h3 className="mb-3 text-sm font-semibold text-[var(--color-heading)]">
+          Price Range
+        </h3>
         <div className="px-1">
           <input
             type="range"
@@ -102,38 +147,42 @@ const FilterSidebar = ({
             <span>₹{currentMaxPrice}</span>
           </div>
         </div>
-      ),
-    },
-    {
-      key: "brand",
-      title: "Brand",
-      content: (
-        <div className="space-y-3">
-          {brands.map((brand) => (
-            <label
-              key={brand}
-              className="flex items-center gap-3 text-sm text-[var(--color-text)] cursor-pointer"
-            >
-              <input
-                type="checkbox"
-                checked={selectedBrands.includes(brand)}
-                onChange={() =>
-                  toggleArrayItem(selectedBrands, setSelectedBrands, brand)
-                }
-                className="h-4 w-4 rounded border-gray-300 text-[var(--color-accent)] focus:ring-[var(--color-accent)]"
-              />
-              <span className="hover:text-[var(--color-accent)] transition-colors">
-                {brand}
-              </span>
-            </label>
-          ))}
+      </div>
+
+      {/* Brand */}
+      {brands.length > 0 && (
+        <div className="mb-5 border-b border-[var(--color-border)] pb-5">
+          <h3 className="mb-3 text-sm font-semibold text-[var(--color-heading)]">
+            Brand
+          </h3>
+          <div className="space-y-3">
+            {brands.map((brand) => (
+              <label
+                key={brand}
+                className="flex items-center gap-3 text-sm text-[var(--color-text)] cursor-pointer"
+              >
+                <input
+                  type="checkbox"
+                  checked={selectedBrands.includes(brand)}
+                  onChange={() =>
+                    toggleArrayItem(selectedBrands, setSelectedBrands, brand)
+                  }
+                  className="h-4 w-4 rounded border-gray-300 text-[var(--color-accent)] focus:ring-[var(--color-accent)]"
+                />
+                <span className="hover:text-[var(--color-accent)] transition-colors">
+                  {brand}
+                </span>
+              </label>
+            ))}
+          </div>
         </div>
-      ),
-    },
-    {
-      key: "size",
-      title: "Size",
-      content: (
+      )}
+
+      {/* Size */}
+      <div className="mb-5 border-b border-[var(--color-border)] pb-5">
+        <h3 className="mb-3 text-sm font-semibold text-[var(--color-heading)]">
+          Size
+        </h3>
         <div className="flex flex-wrap gap-2">
           {sizes.map((size) => (
             <button
@@ -152,12 +201,13 @@ const FilterSidebar = ({
             </button>
           ))}
         </div>
-      ),
-    },
-    {
-      key: "color",
-      title: "Color",
-      content: (
+      </div>
+
+      {/* Color */}
+      <div className="mb-5 border-b border-[var(--color-border)] pb-5">
+        <h3 className="mb-3 text-sm font-semibold text-[var(--color-heading)]">
+          Color
+        </h3>
         <div className="flex flex-wrap gap-3">
           {colors.map((color) => (
             <button
@@ -175,12 +225,13 @@ const FilterSidebar = ({
             />
           ))}
         </div>
-      ),
-    },
-    {
-      key: "rating",
-      title: "Rating",
-      content: (
+      </div>
+
+      {/* Rating */}
+      <div className="mb-6">
+        <h3 className="mb-3 text-sm font-semibold text-[var(--color-heading)]">
+          Rating
+        </h3>
         <div className="space-y-3">
           {[5, 4, 3].map((stars) => (
             <button
@@ -214,59 +265,26 @@ const FilterSidebar = ({
             </button>
           ))}
         </div>
-      ),
-    },
-  ];
-
-  return (
-    <div className="w-full rounded-2xl border border-[var(--color-border)] bg-white p-6 shadow-sm">
-      {/* Horizontal Accordion Header */}
-      <div className="flex items-center justify-between gap-2 border-b border-[var(--color-border)] pb-3">
-        {sections.map((section) => (
-          <button
-            key={section.key}
-            type="button"
-            onClick={() => toggleSection(section.key)}
-            className="flex flex-1 items-center justify-center gap-1 rounded-lg px-3 py-2 text-sm font-semibold text-[var(--color-heading)] transition-colors hover:bg-gray-50"
-          >
-            {section.title}
-            <ChevronDown
-              className={`h-4 w-4 transition-transform duration-200 ${
-                openSection === section.key ? "rotate-180" : ""
-              }`}
-            />
-          </button>
-        ))}
       </div>
 
-      {/* Active Section Content */}
-      {openSection && (
-        <div className="mt-4 animate-in fade-in slide-in-from-top-2 duration-200">
-          {sections.find((s) => s.key === openSection)?.content}
-        </div>
-      )}
-
       {/* Bottom Actions */}
-      <div className="mt-6 flex items-center justify-between border-t border-[var(--color-border)] pt-4">
+      <div className="flex flex-col gap-3">
+        <button
+          type="button"
+          onClick={onApply}
+          className="w-full rounded-xl bg-[var(--color-accent)] px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-[var(--color-primary)] hover:shadow-lg hover:-translate-y-0.5"
+        >
+          Apply Filters
+        </button>
         {hasActiveFilters && (
           <button
             type="button"
             onClick={clearAll}
-            className="flex items-center gap-1 text-xs font-medium text-[var(--color-accent)] hover:underline"
+            className="w-full rounded-xl border border-[var(--color-border)] px-6 py-3 text-sm font-semibold text-[var(--color-text)] transition-all hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]"
           >
-            <X className="h-3.5 w-3.5" />
             Clear All
           </button>
         )}
-        <div className="ml-auto">
-          <button
-            type="button"
-            onClick={onApply}
-            className="rounded-xl bg-[var(--color-accent)] px-6 py-2.5 text-sm font-semibold text-white transition-all hover:bg-[var(--color-primary)] hover:shadow-lg hover:-translate-y-0.5"
-          >
-            Apply Filters
-          </button>
-        </div>
       </div>
     </div>
   );

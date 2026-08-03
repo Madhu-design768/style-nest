@@ -2,7 +2,15 @@ import { useState, useEffect } from "react";
 import { X } from "lucide-react";
 import FilterSidebar from "./FilterSidebar";
 
-const MobileFilterDrawer = ({ isOpen, onClose, filters, handlers }) => {
+// const MobileFilterDrawer = ({ isOpen, onClose, filters, handlers }) => {
+const MobileFilterDrawer = ({
+  isOpen,
+  onClose,
+  filters,
+  handlers,
+  categories,
+  brands,
+}) => {
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
@@ -47,7 +55,13 @@ const MobileFilterDrawer = ({ isOpen, onClose, filters, handlers }) => {
 
         {/* Content */}
         <div className="h-[calc(100vh-64px)] overflow-y-auto p-4">
-          <FilterSidebar filters={filters} handlers={handlers} />
+          {/* <FilterSidebar filters={filters} handlers={handlers} /> */}
+          <FilterSidebar
+            filters={filters}
+            handlers={handlers}
+            categories={categories}
+            brands={brands}
+          />
         </div>
       </div>
     </>

@@ -1,6 +1,3 @@
-/**
- * Featured Products Data
- */
 
 const products = [
   {
@@ -9,29 +6,52 @@ const products = [
     category: "Men",
     price: "$59",
     rating: 4.8,
-    colors: ["Black", "Blue", "Red"],
+    colors: ["Black", "green", "orange"],
     brands: ["Nike"],
     image:
       "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80",
   },
-  {
-    id: 2,
-    name: "Denim Jacket",
-    category: "Women",
-    price: "$79",
-    rating: 4.9,
-    colors: ["Blue", "Black"],
-    brands: [""],
-    image:
-      "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=800&q=80",
-  },
+  // {
+  //   id: 2,
+  //   name: "Denim Jacket",
+  //   category: "Women",
+  //   price: "$79",
+  //   rating: 4.9,
+  //   colors: ["Blue", "Black"],
+  //   brands: [""],
+  //   image:
+  //     "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=800&q=80",
+  // },
+
+
+{
+  id: 2,
+  name: "Denim Jacket",
+  category: "Women",
+  price: "$79",
+  rating: 4.9,
+  colors: ["Blue", "Black"],
+  brands: [""],
+
+  image:
+    "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=800&q=80",
+
+  images: [
+    "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=800&q=80",
+    "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=800&q=80",
+    "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=800&q=80",
+    "https://images.unsplash.com/photo-1496217590455-aa63a8350eea?auto=format&fit=crop&w=800&q=80",
+    "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80",
+  ],
+},
+
   {
     id: 3,
     name: "Casual Shirt",
     category: "Men",
     price: "$39",
     rating: 4.7,
-    colors: ["White", "Blue", "Red"],
+    colors: ["White", "orange", "pink"],
     image:
       "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=800&q=80",
   },

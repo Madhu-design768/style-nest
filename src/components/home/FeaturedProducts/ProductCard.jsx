@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { Heart, ShoppingBag, Star, Eye } from "lucide-react";
 
 /**
@@ -5,8 +6,17 @@ import { Heart, ShoppingBag, Star, Eye } from "lucide-react";
  */
 
 const ProductCard = ({ product }) => {
+  const navigate = useNavigate();
+
+  const handleNavigate = () => {
+    navigate(`/product/${product.id}`);
+  };
+
   return (
-    <div className="group relative bg-white rounded-[2rem] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+    <div
+      onClick={handleNavigate}
+      className="group relative bg-white rounded-[2rem] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 cursor-pointer"
+    >
       
       {/* Image Container */}
       <div className="relative overflow-hidden aspect-[3/4]">
@@ -31,14 +41,23 @@ const ProductCard = ({ product }) => {
 
         {/* Quick View */}
         <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center">
-          <button className="flex items-center gap-2 bg-white/95 backdrop-blur-sm text-[var(--color-primary)] px-6 py-3 rounded-full font-semibold text-sm uppercase tracking-[0.05em] translate-y-4 group-hover:translate-y-0 transition-all duration-300 hover:bg-[var(--color-accent)] hover:text-white">
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              handleNavigate();
+            }}
+            className="flex items-center gap-2 bg-white/95 backdrop-blur-sm text-[var(--color-primary)] px-6 py-3 rounded-full font-semibold text-sm uppercase tracking-[0.05em] translate-y-4 group-hover:translate-y-0 transition-all duration-300 hover:bg-[var(--color-accent)] hover:text-white"
+          >
             <Eye size={18} />
             Quick View
           </button>
         </div>
 
         {/* Wishlist Button */}
-        <button className="absolute right-4 top-4 rounded-full bg-white/95 backdrop-blur-sm p-2.5 shadow-lg transition-all duration-300 hover:bg-[var(--color-accent)] hover:text-white hover:scale-110 z-10">
+        <button
+          onClick={(e) => e.stopPropagation()}
+          className="absolute right-4 top-4 rounded-full bg-white/95 backdrop-blur-sm p-2.5 shadow-lg transition-all duration-300 hover:bg-[var(--color-accent)] hover:text-white hover:scale-110 z-10"
+        >
           <Heart size={18} />
         </button>
       </div>
@@ -86,7 +105,10 @@ const ProductCard = ({ product }) => {
             )}
           </div>
 
-          <button className="rounded-full bg-[var(--color-primary)] p-3 text-white transition-all duration-300 hover:bg-[var(--color-accent)] hover:scale-110 shadow-lg hover:shadow-xl">
+          <button
+            onClick={(e) => e.stopPropagation()}
+            className="rounded-full bg-[var(--color-primary)] p-3 text-white transition-all duration-300 hover:bg-[var(--color-accent)] hover:scale-110 shadow-lg hover:shadow-xl"
+          >
             <ShoppingBag size={18} />
           </button>
         </div>

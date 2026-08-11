@@ -61,7 +61,7 @@ const Product = () => {
               <button
                 type="button"
                 onClick={() => setActiveTab("description")}
-                className={`pr-8 pb-4 text-sm font-semibold transition-colors ${
+                className={`pr-8 pb-4 text-xl font-semibold transition-colors ${
                   activeTab === "description"
                     ? "border-b-2 border-[var(--color-accent)] text-[var(--color-heading)]"
                     : "text-[var(--color-text)] hover:text-[var(--color-heading)]"
@@ -73,7 +73,7 @@ const Product = () => {
               <button
                 type="button"
                 onClick={() => setActiveTab("specifications")}
-                className={`pr-8 pb-4 text-sm font-semibold transition-colors ${
+                className={`pr-8 pb-4 text-xl font-semibold transition-colors ${
                   activeTab === "specifications"
                     ? "border-b-2 border-[var(--color-accent)] text-[var(--color-heading)]"
                     : "text-[var(--color-text)] hover:text-[var(--color-heading)]"
@@ -85,7 +85,7 @@ const Product = () => {
               <button
                 type="button"
                 onClick={() => setActiveTab("reviews")}
-                className={`pb-4 text-sm font-semibold transition-colors ${
+                className={`pb-4 text-xl font-semibold transition-colors ${
                   activeTab === "reviews"
                     ? "border-b-2 border-[var(--color-accent)] text-[var(--color-heading)]"
                     : "text-[var(--color-text)] hover:text-[var(--color-heading)]"

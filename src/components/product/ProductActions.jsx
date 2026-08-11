@@ -94,7 +94,7 @@ const ProductActions = ({ product }) => {
       <div className="mt-6 flex items-center gap-2 pt-6">
         <button
           type="button"
-          className="flex h-11 flex-1 items-center justify-center rounded-2xl bg-[var(--color-primary)] px-5 text-sm font-semibold text-white transition-all hover:bg-[var(--color-accent)]"
+          className="flex h-11 flex-1 items-center justify-center rounded-2xl bg-[var(--color-accent)] px-5 text-sm font-semibold text-white transition-all hover:bg-[var(--color-primary)]"
         >
              <Zap className="h-5 w-5"/>
           Buy it Now
@@ -110,7 +110,7 @@ const ProductActions = ({ product }) => {
 
         <button
           type="button"
-          className="flex h-11 flex-1 items-center justify-center rounded-2xl border border-[var(--color-border)] bg-white px-5 text-sm font-semibold text-[var(--color-heading)] transition-all hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]"
+          className="flex h-11 flex-1 items-center justify-center rounded-2xl border border-[var(--color-accent)] bg-white px-5 text-sm font-semibold text-[var(--color-primary)] transition-all hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]"
         >
        <ShoppingCart className="h-5 w-5"/>
           Add to Cart

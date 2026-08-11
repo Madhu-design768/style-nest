@@ -27,7 +27,7 @@ const images = product.images?.length
         key={index}
         type="button"
         onClick={() => setSelectedImage(index)}
-        className={`overflow-hidden rounded-xl bg-gray-100 transition-all ${
+        className={`overflow-hidden rounded-xl bg-gray-100  transition-all ${
           selectedImage === index
             ? "ring-2 ring-[var(--color-accent)] ring-offset-2"
             : "opacity-70 hover:opacity-100"

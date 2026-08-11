@@ -23,10 +23,8 @@ const ProductInfo = ({ product }) => {
         {product.name}
       </h1>
 
-
-
       <div className="mt-3 flex items-center gap-2">
-        {/* <div className="flex gap-0.5">
+        <div className="flex gap-0.5">
           {[...Array(5)].map((_, i) => (
             <Star
               key={i}
@@ -37,13 +35,13 @@ const ProductInfo = ({ product }) => {
               }`}
             />
           ))}
-        </div> */}
-        {/* <span className="text-sm font-medium text-[var(--color-text)]">
+        </div>
+        <span className="text-sm font-medium text-[var(--color-text)]">
           {product.rating?.toFixed(1)}
         </span>
         <span className="text-sm text-[var(--color-text)]">
           ({product.reviewCount || 0} reviews)
-        </span> */}
+        </span>
       </div>
 
       <div className="mt-4 pt-3 flex items-center gap-3">
@@ -55,6 +53,7 @@ const ProductInfo = ({ product }) => {
             <span className="text-xl text-gray-400 line-through">
               ₹{originalPrice.toFixed(0)}
             </span>
+
             <span className="rounded-full bg-red-100 px-3 py-1 text-xs font-semibold text-red-600">
               -{discount}%
             </span>

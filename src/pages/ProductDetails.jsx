@@ -87,7 +87,6 @@ const ProductDetails = () => {
             </div>
           </div>
 
-          {/* Product Information */}
           <div>
             <span className="text-xs uppercase tracking-wider text-[var(--color-text)]">
               {product.category}
@@ -96,7 +95,6 @@ const ProductDetails = () => {
               {product.name}
             </h1>
 
-            {/* Rating */}
             <div className="mt-3 flex items-center gap-2">
               <div className="flex gap-0.5">
                 {[...Array(5)].map((_, i) => (
@@ -115,7 +113,6 @@ const ProductDetails = () => {
               </span>
             </div>
 
-            {/* Price */}
             <div className="mt-4 flex items-center gap-3">
               <span className="text-3xl font-bold text-[var(--color-accent)]">
                 ${product.price}
@@ -132,13 +129,11 @@ const ProductDetails = () => {
               )}
             </div>
 
-            {/* Description */}
             <p className="mt-4 text-base leading-relaxed text-[var(--color-text)]">
               Premium quality {product.name.toLowerCase()} designed for comfort and style. 
               Perfect for any occasion with its modern fit and high-quality materials.
             </p>
 
-            {/* Size Selection */}
             <div className="mt-6">
               <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-[var(--color-heading)]">
                 Size
@@ -161,7 +156,6 @@ const ProductDetails = () => {
               </div>
             </div>
 
-            {/* Color Selection */}
             <div className="mt-6">
               <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-[var(--color-heading)]">
                 Color
@@ -183,7 +177,6 @@ const ProductDetails = () => {
               </div>
             </div>
 
-            {/* Quantity Selector */}
             <div className="mt-6">
               <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-[var(--color-heading)]">
                 Quantity
@@ -209,7 +202,6 @@ const ProductDetails = () => {
               </div>
             </div>
 
-            {/* Buttons */}
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
               <button
                 type="button"
@@ -226,7 +218,6 @@ const ProductDetails = () => {
               </button>
             </div>
 
-            {/* Features */}
             <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
               {features.map((feature) => (
                 <div

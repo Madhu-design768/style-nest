@@ -13,7 +13,7 @@ const EmptyCart = () => {
       </p>
       <Link
         to="/shop"
-        className="mt-6 rounded-lg bg-[var(--color-accent)] px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-[var(--color-primary)]"
+        className="mt-6 rounded-2xl bg-[var(--color-accent)] px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-[var(--color-primary)]"
       >
         Continue Shopping
       </Link>

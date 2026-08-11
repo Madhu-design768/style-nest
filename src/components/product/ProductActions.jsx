@@ -1,18 +1,19 @@
 import { useState } from "react";
+import { useCart } from "../../context/CartContext";
 import {
   Heart,
   Minus,
   Plus,
   ShoppingCart,
   Zap,
-//   ArrowUpRight,
+  //   ArrowUpRight,
 } from "lucide-react";
 
 const ProductActions = ({ product }) => {
   const [selectedSize, setSelectedSize] = useState(null);
   const [selectedColor, setSelectedColor] = useState(null);
   const [quantity, setQuantity] = useState(1);
-
+  const { addToCart } = useCart();
   const sizes = ["XS", "S", "M", "L", "XL"];
   const colors = [
     { name: "Black", bg: "bg-black" },
@@ -96,7 +97,7 @@ const ProductActions = ({ product }) => {
           type="button"
           className="flex h-11 flex-1 items-center justify-center rounded-2xl bg-[var(--color-accent)] px-5 text-sm font-semibold text-white transition-all hover:bg-[var(--color-primary)]"
         >
-             <Zap className="h-5 w-5"/>
+          <Zap className="h-5 w-5" />
           Buy it Now
         </button>
 
@@ -110,23 +111,24 @@ const ProductActions = ({ product }) => {
 
         <button
           type="button"
+          onClick={() =>
+            addToCart(product, quantity, selectedSize, selectedColor)
+          }
           className="flex h-11 flex-1 items-center justify-center rounded-2xl border border-[var(--color-accent)] bg-white px-5 text-sm font-semibold text-[var(--color-primary)] transition-all hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]"
         >
-       <ShoppingCart className="h-5 w-5"/>
+          <ShoppingCart className="h-5 w-5" />
           Add to Cart
         </button>
       </div>
-      {/* <div className="pt-2 flex justify-center ">
-        <button
+      <div className="pt-2 flex justify-center ">
+        {/* <button
           type="button"
           className="mt-3 flex h-11 w-full items-center justify-center rounded-full border border-[var(--color-border)] bg-white px-5 text-sm font-semibold text-[var(--color-heading)] transition-all hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]"
         >
           <Heart className="h-5 w-5" />
           Add to Wishlist
-        </button>
-      </div> */}
-
-
+        </button> */}
+      </div>
     </div>
   );
 };

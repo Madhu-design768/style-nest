@@ -1,9 +1,20 @@
 import { useNavigate } from "react-router-dom";
 import { Star, Heart } from "lucide-react";
-
+import { useCart } from "../../context/CartContext";
 const ProductCard = ({ product, onQuickView }) => {
   const navigate = useNavigate();
-  const { id, name, category, image, price, originalPrice, rating, reviewCount, isSale } = product;
+  const {
+    id,
+    name,
+    category,
+    image,
+    price,
+    originalPrice,
+    rating,
+    reviewCount,
+    isSale,
+  } = product;
+  const { addToCart } = useCart();
 
   const numericPrice =
     typeof price === "string"
@@ -15,7 +26,9 @@ const ProductCard = ({ product, onQuickView }) => {
       : originalPrice || null;
 
   const discount = numericOriginalPrice
-    ? Math.round(((numericOriginalPrice - numericPrice) / numericOriginalPrice) * 100)
+    ? Math.round(
+        ((numericOriginalPrice - numericPrice) / numericOriginalPrice) * 100,
+      )
     : 0;
 
   const handleNavigate = () => {
@@ -27,7 +40,6 @@ const ProductCard = ({ product, onQuickView }) => {
       onClick={handleNavigate}
       className="group flex flex-col rounded-2xl border border-[var(--color-border)] bg-white shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1 overflow-hidden cursor-pointer"
     >
-      {/* Image Container */}
       <div className="relative overflow-hidden bg-gray-100">
         <img
           src={image}
@@ -109,12 +121,14 @@ const ProductCard = ({ product, onQuickView }) => {
           )}
         </div>
 
-        {/* Add to Cart Button */}
         <button
-          onClick={(e) => e.stopPropagation()}
-          className="mt-4 w-full rounded-xl bg-[var(--color-accent)] px-4 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-[var(--color-primary)] hover:shadow-lg hover:-translate-y-0.5"
+          onClick={(e) => {
+            e.stopPropagation();
+            addToCart(product);
+          }}
+          className="rounded-2xl bg-[var(--color-primary)] p-3 text-white transition-all duration-300 hover:bg-[var(--color-accent)] hover:scale-110 shadow-lg hover:shadow-xl"
         >
-          Add to Cart
+          Add To cart
         </button>
       </div>
     </div>

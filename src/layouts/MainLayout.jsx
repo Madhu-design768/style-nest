@@ -8,7 +8,7 @@ const MainLayout = ({ children }) => {
     <>
       <AnnouncementBar />
       <Navbar />
-
+       
       <main className="pb-16 lg:pb-0">
         {children}
       </main>

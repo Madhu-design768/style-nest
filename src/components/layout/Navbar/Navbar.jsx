@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
-import { NavLink, useLocation, useSearchParams } from "react-router-dom";
+import { NavLink, useLocation, useSearchParams, useNavigate} from "react-router-dom";
 import { Search, Heart, ShoppingCart, User, Menu, X } from "lucide-react";
 import NavLinks from "./NavLinks";
 import { navigation } from "../../../data/navigation";
+import { useCart } from "../../../context/CartContext";
 
 const Navbar = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -10,6 +11,9 @@ const Navbar = () => {
   const location = useLocation();
   const isShopPage = location.pathname === "/shop";
   const [searchParams, setSearchParams] = useSearchParams();
+
+  const { cartItems } = useCart();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (isDrawerOpen) {
@@ -25,7 +29,6 @@ const Navbar = () => {
   return (
     <header className="sticky top-0 z-50 bg-white shadow-sm relative">
       <div className="mx-auto flex h-20 max-w-7xl items-center px-4 sm:px-6 lg:px-8">
-        {/* Mobile Menu */}
         <button
           className="lg:hidden mr-2 flex flex-col justify-center gap-1.5"
           onClick={() => setIsDrawerOpen(true)}
@@ -35,14 +38,12 @@ const Navbar = () => {
           <span className="h-[2px] w-4 rounded-full bg-[var(--color-primary)]"></span>
         </button>
 
-        {/* Logo */}
         <div className="ml-3.5 flex flex-1 items-center justify-center lg:justify-start">
           <h1 className="text-3xl font-bold tracking-wide text-[var(--color-primary)]">
             StyleNest
           </h1>
         </div>
 
-        {/* Desktop Navigation */}
         <div className="hidden flex-1 justify-center lg:flex">
           {isShopPage ? (
             <nav className="flex items-center gap-6">
@@ -50,7 +51,8 @@ const Navbar = () => {
                 to="/"
                 className={({ isActive }) =>
                   `text-sm font-medium transition-colors ${
-                    !isActive && "text-[var(--color-primary)] hover:text-[var(--color-accent)]"
+                    !isActive &&
+                    "text-[var(--color-primary)] hover:text-[var(--color-accent)]"
                   }`
                 }
               >
@@ -75,10 +77,8 @@ const Navbar = () => {
           )}
         </div>
 
-        {/* Mobile Drawer */}
         {isDrawerOpen && (
           <>
-            {/* Overlay */}
             <div
               onClick={() => setIsDrawerOpen(false)}
               className={`fixed inset-0 z-40 bg-black/40 transition-opacity duration-300 lg:hidden ${
@@ -86,13 +86,11 @@ const Navbar = () => {
               }`}
             />
 
-            {/* Drawer */}
             <div
               className={`fixed left-0 top-0 z-50 h-screen w-72 bg-white shadow-lg
                  transform transition-transform duration-500 ease-in-out lg:hidden
                 ${isDrawerOpen ? "translate-x-0" : "-translate-x-full"}`}
             >
-              {/* Close Button */}
               <button
                 className="absolute right-4 top-4"
                 onClick={() => setIsDrawerOpen(false)}
@@ -100,7 +98,6 @@ const Navbar = () => {
                 <X size={24} />
               </button>
 
-              {/* Navigation Links */}
               <nav className="mt-16 px-4">
                 {navigation.map((item, index) => (
                   <div key={item.id}>
@@ -164,8 +161,21 @@ const Navbar = () => {
             <Heart size={22} />
           </button>
 
-          <button>
+          {/* <NavLink to="/cart">
+            <ShoppingCart
+              size={22}
+              className="cursor-pointer transition-colors hover:text-[var(--color-accent)]"
+            />
+          </NavLink> */}
+
+          <button onClick={() => navigate("/cart")} className="relative">
             <ShoppingCart size={22} />
+
+            {cartItems.length > 0 && (
+              <span className="absolute -right-2 -top-2 flex h-5 min-w-5 items-center justify-center rounded-full bg-[var(--color-accent)] px-1 text-[10px] font-bold text-white">
+                {cartItems.reduce((total, item) => total + item.quantity, 0)}
+              </span>
+            )}
           </button>
 
           <button>

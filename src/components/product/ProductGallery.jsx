@@ -47,7 +47,7 @@ const images = product.images?.length
       <img
         src={images[selectedImage]}
         alt={product.name}
-        className="h-[400px] w-full object-cover sm:h-[500px]"
+         className="h-[400px] w-full object-cover transition-transform duration-500 ease-out cursor-zoom-in hover:scale-110 sm:h-[500px]"
       />
     </div>
   </div>

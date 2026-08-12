@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
-import { NavLink, useLocation, useSearchParams } from "react-router-dom";
+import { NavLink, useLocation, useSearchParams, useNavigate } from "react-router-dom";
 import { Search, Heart, ShoppingCart, User, Menu, X } from "lucide-react";
 import NavLinks from "./NavLinks";
 import { navigation } from "../../../data/navigation";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
   const location = useLocation();
@@ -50,7 +51,8 @@ const Navbar = () => {
                 to="/"
                 className={({ isActive }) =>
                   `text-sm font-medium transition-colors ${
-                    !isActive && "text-[var(--color-primary)] hover:text-[var(--color-accent)]"
+                    !isActive &&
+                    "text-[var(--color-primary)] hover:text-[var(--color-accent)]"
                   }`
                 }
               >
@@ -168,8 +170,15 @@ const Navbar = () => {
             <ShoppingCart size={22} />
           </button>
 
-          <button>
-            <User size={22} />
+          <button
+            type="button"
+            onClick={() => navigate("/login")}
+            aria-label="Login"
+          >
+            <User
+              size={22}
+              className="transition-colors hover:text-[var(--color-accent)]"
+            />
           </button>
         </div>
 

@@ -11,7 +11,7 @@ const Cart = () => {
     <MainLayout>
     <div>
       <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-16">
-        <h1 className="mb-6 pt-6 pb-8 text-3xl font-bold text-[var(--color-heading)]">
+        <h1 className="mb-6 pt-6 pb-6 text-2xl font-medium text-[var(--color-heading)]">
           Shopping Cart
         </h1>
 

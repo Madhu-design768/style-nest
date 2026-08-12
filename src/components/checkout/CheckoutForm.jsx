@@ -203,7 +203,7 @@ const CheckoutForm = ({ onSubmit, paymentMethod }) => {
     "rounded-xl border border-[var(--color-border)] bg-white p-6 shadow-sm";
 
   const sectionTitleClass =
-    "mb-6  text-xl font-semibold text-[var(--color-heading)]";
+    "mb-6  text-xl pb-4 pt-4 font-semibold text-[var(--color-heading)]";
 
   return (
     <form onSubmit={handleSubmit} noValidate className="space-y-8">
@@ -287,248 +287,303 @@ const CheckoutForm = ({ onSubmit, paymentMethod }) => {
         </div>
       </div>
 
-      
-      <div className={sectionClass}>
-        <h2 className={sectionTitleClass}>Shipping Address</h2>
+   {/* Billing Address */}
+<div className={sectionClass}>
+  <h2 className={sectionTitleClass}>Billing Address</h2>
 
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <div>
-            <label htmlFor="shippingCountry" className={labelClass}>
-              Country
-            </label>
-            <select
-              id="shippingCountry"
-              name="shippingCountry"
-              value={formData.shippingCountry}
-              onChange={(e) => handleCountryChange(e, "shipping")}
-              className={selectClass("shippingCountry")}
-            >
-              <option value="">Select Country</option>
-              {countries.map((country) => (
-                <option key={country} value={country}>
-                  {country}
-                </option>
-              ))}
-            </select>
-            {errors.shippingCountry && (
-              <p className={errorTextClass}>{errors.shippingCountry}</p>
-            )}
-          </div>
+  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+    <div>
+      <label htmlFor="billingCountry" className={labelClass}>
+        Country
+      </label>
 
-          <div>
-            <label htmlFor="shippingState" className={labelClass}>
-              State
-            </label>
-            <select
-              id="shippingState"
-              name="shippingState"
-              value={formData.shippingState}
-              onChange={(e) => handleStateChange(e, "shipping")}
-              disabled={!formData.shippingCountry}
-              className={selectClass("shippingState")}
-            >
-              <option value="">Select State</option>
-              {shippingStates.map((state) => (
-                <option key={state} value={state}>
-                  {state}
-                </option>
-              ))}
-            </select>
-            {errors.shippingState && (
-              <p className={errorTextClass}>{errors.shippingState}</p>
-            )}
-          </div>
+      <select
+        id="billingCountry"
+        name="billingCountry"
+        value={formData.billingCountry}
+        onChange={(e) => handleCountryChange(e, "billing")}
+        className={selectClass("billingCountry")}
+      >
+        <option value="">Select Country</option>
 
-          <div>
-            <label htmlFor="shippingCity" className={labelClass}>
-              City
-            </label>
-            <select
-              id="shippingCity"
-              name="shippingCity"
-              value={formData.shippingCity}
-              onChange={handleChange}
-              disabled={!formData.shippingState}
-              className={selectClass("shippingCity")}
-            >
-              <option value="">Select City</option>
-              {shippingCities.map((city) => (
-                <option key={city} value={city}>
-                  {city}
-                </option>
-              ))}
-            </select>
-            {errors.shippingCity && (
-              <p className={errorTextClass}>{errors.shippingCity}</p>
-            )}
-          </div>
+        {countries.map((country) => (
+          <option key={country} value={country}>
+            {country}
+          </option>
+        ))}
+      </select>
 
-          <div className="sm:col-span-2">
-            <label htmlFor="shippingAddress" className={labelClass}>
-              Address
-            </label>
-            <input
-              id="shippingAddress"
-              type="text"
-              name="shippingAddress"
-              value={formData.shippingAddress}
-              onChange={handleChange}
-              placeholder="House number, street, area"
-              className={inputClass("shippingAddress")}
-            />
-            {errors.shippingAddress && (
-              <p className={errorTextClass}>{errors.shippingAddress}</p>
-            )}
-          </div>
+      {errors.billingCountry && (
+        <p className={errorTextClass}>
+          {errors.billingCountry}
+        </p>
+      )}
+    </div>
 
-          <div>
-            <label htmlFor="shippingPincode" className={labelClass}>
-              Pincode
-            </label>
-            <input
-              id="shippingPincode"
-              type="text"
-              name="shippingPincode"
-              value={formData.shippingPincode}
-              onChange={handleChange}
-              placeholder="Enter pincode"
-              className={inputClass("shippingPincode")}
-            />
-            {errors.shippingPincode && (
-              <p className={errorTextClass}>{errors.shippingPincode}</p>
-            )}
-          </div>
-        </div>
-      </div>
+    <div>
+      <label htmlFor="billingState" className={labelClass}>
+        State
+      </label>
 
-      {/* Billing Address */}
-      <div className={sectionClass}>
-        <h2 className={sectionTitleClass}>Billing Address</h2>
+      <select
+        id="billingState"
+        name="billingState"
+        value={formData.billingState}
+        onChange={(e) => handleStateChange(e, "billing")}
+        disabled={!formData.billingCountry}
+        className={selectClass("billingState")}
+      >
+        <option value="">Select State</option>
 
-        <label className="mb-6 flex cursor-pointer items-center gap-3">
-          <input
-            type="checkbox"
-            name="billingSameAsShipping"
-            checked={formData.billingSameAsShipping}
-            onChange={handleChange}
-            className="h-4 w-4 rounded border-gray-300 text-[var(--color-accent)] focus:ring-[var(--color-accent)]"
-          />
-          <span className="text-sm font-medium text-[var(--color-heading)]">
-            Billing address is same as shipping address
-          </span>
-        </label>
+        {billingStates.map((state) => (
+          <option key={state} value={state}>
+            {state}
+          </option>
+        ))}
+      </select>
 
-        {!formData.billingSameAsShipping && (
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-            <div>
-              <label htmlFor="billingCountry" className={labelClass}>
-                Country
-              </label>
-              <select
-                id="billingCountry"
-                name="billingCountry"
-                value={formData.billingCountry}
-                onChange={(e) => handleCountryChange(e, "billing")}
-                className={selectClass("billingCountry")}
-              >
-                <option value="">Select Country</option>
-                {countries.map((country) => (
-                  <option key={country} value={country}>
-                    {country}
-                  </option>
-                ))}
-              </select>
-              {errors.billingCountry && (
-                <p className={errorTextClass}>{errors.billingCountry}</p>
-              )}
-            </div>
+      {errors.billingState && (
+        <p className={errorTextClass}>
+          {errors.billingState}
+        </p>
+      )}
+    </div>
 
-            <div>
-              <label htmlFor="billingState" className={labelClass}>
-                State
-              </label>
-              <select
-                id="billingState"
-                name="billingState"
-                value={formData.billingState}
-                onChange={(e) => handleStateChange(e, "billing")}
-                disabled={!formData.billingCountry}
-                className={selectClass("billingState")}
-              >
-                <option value="">Select State</option>
-                {billingStates.map((state) => (
-                  <option key={state} value={state}>
-                    {state}
-                  </option>
-                ))}
-              </select>
-              {errors.billingState && (
-                <p className={errorTextClass}>{errors.billingState}</p>
-              )}
-            </div>
+    <div>
+      <label htmlFor="billingCity" className={labelClass}>
+        City
+      </label>
 
-            <div>
-              <label htmlFor="billingCity" className={labelClass}>
-                City
-              </label>
-              <select
-                id="billingCity"
-                name="billingCity"
-                value={formData.billingCity}
-                onChange={handleChange}
-                disabled={!formData.billingState}
-                className={selectClass("billingCity")}
-              >
-                <option value="">Select City</option>
-                {billingCities.map((city) => (
-                  <option key={city} value={city}>
-                    {city}
-                  </option>
-                ))}
-              </select>
-              {errors.billingCity && (
-                <p className={errorTextClass}>{errors.billingCity}</p>
-              )}
-            </div>
+      <select
+        id="billingCity"
+        name="billingCity"
+        value={formData.billingCity}
+        onChange={handleChange}
+        disabled={!formData.billingState}
+        className={selectClass("billingCity")}
+      >
+        <option value="">Select City</option>
 
-            <div className="sm:col-span-2">
-              <label htmlFor="billingAddress" className={labelClass}>
-                Address
-              </label>
-              <input
-                id="billingAddress"
-                type="text"
-                name="billingAddress"
-                value={formData.billingAddress}
-                onChange={handleChange}
-                placeholder="House number, street, area"
-                className={inputClass("billingAddress")}
-              />
-              {errors.billingAddress && (
-                <p className={errorTextClass}>{errors.billingAddress}</p>
-              )}
-            </div>
+        {billingCities.map((city) => (
+          <option key={city} value={city}>
+            {city}
+          </option>
+        ))}
+      </select>
 
-            <div>
-              <label htmlFor="billingPincode" className={labelClass}>
-                Pincode
-              </label>
-              <input
-                id="billingPincode"
-                type="text"
-                name="billingPincode"
-                value={formData.billingPincode}
-                onChange={handleChange}
-                placeholder="Enter pincode"
-                className={inputClass("billingPincode")}
-              />
-              {errors.billingPincode && (
-                <p className={errorTextClass}>{errors.billingPincode}</p>
-              )}
-            </div>
-          </div>
-        )}
-      </div>
+      {errors.billingCity && (
+        <p className={errorTextClass}>
+          {errors.billingCity}
+        </p>
+      )}
+    </div>
+
+    <div className="sm:col-span-2">
+      <label htmlFor="billingAddress" className={labelClass}>
+        Address
+      </label>
+
+      <input
+        id="billingAddress"
+        type="text"
+        name="billingAddress"
+        value={formData.billingAddress}
+        onChange={handleChange}
+        placeholder="House number, street, area"
+        className={inputClass("billingAddress")}
+      />
+
+      {errors.billingAddress && (
+        <p className={errorTextClass}>
+          {errors.billingAddress}
+        </p>
+      )}
+    </div>
+
+    <div>
+      <label htmlFor="billingPincode" className={labelClass}>
+        Pincode
+      </label>
+
+      <input
+        id="billingPincode"
+        type="text"
+        name="billingPincode"
+        value={formData.billingPincode}
+        onChange={handleChange}
+        placeholder="Enter pincode"
+        className={inputClass("billingPincode")}
+      />
+
+      {errors.billingPincode && (
+        <p className={errorTextClass}>
+          {errors.billingPincode}
+        </p>
+      )}
+    </div>
+  </div>
+</div>
+
+
+<div className={sectionClass}>
+  <h2 className={sectionTitleClass}>Shipping Address</h2>
+
+  <label className="mb-6 flex cursor-pointer items-center gap-3">
+    <input
+      type="checkbox"
+      name="shippingSameAsBilling"
+      checked={formData.shippingSameAsBilling}
+      onChange={handleChange}
+      className="h-4 w-4 rounded border-gray-300 text-[var(--color-accent)] focus:ring-[var(--color-accent)]"
+    />
+
+    <span className="text-sm font-medium text-[var(--color-heading)]">
+      Shipping address is same as billing address
+    </span>
+  </label>
+
+  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+    <div>
+      <label htmlFor="shippingCountry" className={labelClass}>
+        Country
+      </label>
+
+      <select
+        id="shippingCountry"
+        name="shippingCountry"
+        value={formData.shippingCountry}
+        onChange={(e) => handleCountryChange(e, "shipping")}
+        disabled={formData.shippingSameAsBilling}
+        className={selectClass("shippingCountry")}
+      >
+        <option value="">Select Country</option>
+
+        {countries.map((country) => (
+          <option key={country} value={country}>
+            {country}
+          </option>
+        ))}
+      </select>
+
+      {errors.shippingCountry && (
+        <p className={errorTextClass}>
+          {errors.shippingCountry}
+        </p>
+      )}
+    </div>
+
+    <div>
+      <label htmlFor="shippingState" className={labelClass}>
+        State
+      </label>
+
+      <select
+        id="shippingState"
+        name="shippingState"
+        value={formData.shippingState}
+        onChange={(e) => handleStateChange(e, "shipping")}
+        disabled={
+          !formData.shippingCountry ||
+          formData.shippingSameAsBilling
+        }
+        className={selectClass("shippingState")}
+      >
+        <option value="">Select State</option>
+
+        {shippingStates.map((state) => (
+          <option key={state} value={state}>
+            {state}
+          </option>
+        ))}
+      </select>
+
+      {errors.shippingState && (
+        <p className={errorTextClass}>
+          {errors.shippingState}
+        </p>
+      )}
+    </div>
+
+    <div>
+      <label htmlFor="shippingCity" className={labelClass}>
+        City
+      </label>
+
+      <select
+        id="shippingCity"
+        name="shippingCity"
+        value={formData.shippingCity}
+        onChange={handleChange}
+        disabled={
+          !formData.shippingState ||
+          formData.shippingSameAsBilling
+        }
+        className={selectClass("shippingCity")}
+      >
+        <option value="">Select City</option>
+
+        {shippingCities.map((city) => (
+          <option key={city} value={city}>
+            {city}
+          </option>
+        ))}
+      </select>
+
+      {errors.shippingCity && (
+        <p className={errorTextClass}>
+          {errors.shippingCity}
+        </p>
+      )}
+    </div>
+
+    <div className="sm:col-span-2">
+      <label htmlFor="shippingAddress" className={labelClass}>
+        Address
+      </label>
+
+      <input
+        id="shippingAddress"
+        type="text"
+        name="shippingAddress"
+        value={formData.shippingAddress}
+        onChange={handleChange}
+        disabled={formData.shippingSameAsBilling}
+        placeholder="House number, street, area"
+        className={inputClass("shippingAddress")}
+      />
+
+      {errors.shippingAddress && (
+        <p className={errorTextClass}>
+          {errors.shippingAddress}
+        </p>
+      )}
+    </div>
+
+    <div>
+      <label htmlFor="shippingPincode" className={labelClass}>
+        Pincode
+      </label>
+
+      <input
+        id="shippingPincode"
+        type="text"
+        name="shippingPincode"
+        value={formData.shippingPincode}
+        onChange={handleChange}
+        disabled={formData.shippingSameAsBilling}
+        placeholder="Enter pincode"
+        className={inputClass("shippingPincode")}
+      />
+
+      {errors.shippingPincode && (
+        <p className={errorTextClass}>
+          {errors.shippingPincode}
+        </p>
+      )}
+    </div>
+  </div>
+</div>
+
     </form>
   );
 };

@@ -1,10 +1,5 @@
 import ProductCard from "./ProductCard";
 import products from "../../../data/products";
-
-/**
- * Featured Products Section
- */
-
 const FeaturedProducts = () => {
   return (
     <section className="bg-white py-24 mt-4 pt-6 pb-12">

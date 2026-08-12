@@ -27,6 +27,8 @@ const QuickViewModal = ({ product, isOpen, onClose }) => {
       }
     };
 
+
+
     if (isOpen) {
       document.addEventListener("keydown", handleEscape);
       modalRef.current?.focus();

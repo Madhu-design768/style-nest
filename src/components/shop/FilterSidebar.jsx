@@ -81,7 +81,7 @@ const FilterSidebar = ({
         </h3>
 
         {/* Categories List */}
-        <div className="space-y-3">
+        <div className="space-y-3 pt-4">
           {visibleCategories.map((category) => (
             <label
               key={category}
@@ -129,8 +129,8 @@ const FilterSidebar = ({
       </div>
 
       {/* Price Range */}
-      <div className="mb-5 border-b border-[var(--color-border)] pb-10">
-        <h3 className="mb-3 text-sm font-semibold text-[var(--color-heading)]">
+      <div className="mb-5 pt-4 border-b border-[var(--color-border)] pb-10">
+        <h3 className="mb-3 pb-2 text-sm font-semibold text-[var(--color-heading)]">
           Price Range
         </h3>
         <div className="px-1">
@@ -151,11 +151,11 @@ const FilterSidebar = ({
 
       {/* Brand */}
       {brands.length > 0 && (
-        <div className="mb-5 border-b border-[var(--color-border)] pb-5">
-          <h3 className="mb-3 text-sm font-semibold text-[var(--color-heading)]">
+        <div className="mb-5 pt-4 border-b border-[var(--color-border)] pb-5">
+          <h3 className="mb-3 pb-2 text-sm font-semibold text-[var(--color-heading)]">
             Brand
           </h3>
-          <div className="space-y-3">
+          <div className="space-y-3 pb-2">
             {brands.map((brand) => (
               <label
                 key={brand}
@@ -179,8 +179,8 @@ const FilterSidebar = ({
       )}
 
       {/* Size */}
-      <div className="mb-5 border-b border-[var(--color-border)] pb-5">
-        <h3 className="mb-3 text-sm font-semibold text-[var(--color-heading)]">
+      <div className="mb-5 pt-4 border-b border-[var(--color-border)] pb-5">
+        <h3 className="mb-3 pb-2 text-sm font-semibold text-[var(--color-heading)]">
           Size
         </h3>
         <div className="flex flex-wrap gap-2">
@@ -204,8 +204,8 @@ const FilterSidebar = ({
       </div>
 
       {/* Color */}
-      <div className="mb-5 border-b border-[var(--color-border)] pb-5">
-        <h3 className="mb-3 text-sm font-semibold text-[var(--color-heading)]">
+      <div className="mb-5 pt-4 border-b border-[var(--color-border)] pb-5">
+        <h3 className="mb-3 pb-2 text-sm font-semibold text-[var(--color-heading)]">
           Color
         </h3>
         <div className="flex flex-wrap gap-3">
@@ -228,8 +228,8 @@ const FilterSidebar = ({
       </div>
 
       {/* Rating */}
-      <div className="mb-6">
-        <h3 className="mb-3 text-sm font-semibold text-[var(--color-heading)]">
+      <div className="mb-6 pt-4">
+        <h3 className="mb-3 pb-2 text-sm font-semibold text-[var(--color-heading)]">
           Rating
         </h3>
         <div className="space-y-3">
@@ -268,7 +268,7 @@ const FilterSidebar = ({
       </div>
 
       {/* Bottom Actions */}
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col pb-2 pt-4 gap-3">
         <button
           type="button"
           onClick={onApply}

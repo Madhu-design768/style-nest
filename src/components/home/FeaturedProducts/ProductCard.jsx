@@ -93,7 +93,7 @@ const ProductCard = ({ product }) => {
         </div>
 
         {/* Price & Action */}
-        <div className="flex items-center justify-between pt-2">
+        {/* <div className="flex items-center justify-between pt-2">
           <div className="flex items-baseline gap-3">
             <span className="text-2xl font-bold text-[var(--color-primary)]">
               {product.price}
@@ -111,7 +111,29 @@ const ProductCard = ({ product }) => {
           >
             <ShoppingBag size={18} />
           </button>
-        </div>
+        </div> */}
+
+        {/* Price & Action */}
+<div className="flex items-center justify-between pt-2">
+  <div className="flex items-baseline gap-3">
+    <span className="text-2xl font-bold text-[var(--color-primary)]">
+      {product.price}
+    </span>
+
+    {product.originalPrice > product.price && (
+      <span className="text-lg text-gray-400 line-through">
+        {product.originalPrice}
+      </span>
+    )}
+  </div>
+
+  <button
+    onClick={(e) => e.stopPropagation()}
+    className="rounded-full bg-[var(--color-primary)] p-3 text-white transition-all duration-300 hover:bg-[var(--color-accent)] hover:scale-110 shadow-lg hover:shadow-xl"
+  >
+    <ShoppingBag size={18} />
+  </button>
+</div>
 
       </div>
 

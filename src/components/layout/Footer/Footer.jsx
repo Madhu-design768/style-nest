@@ -22,7 +22,10 @@ const Footer = () => {
           </p>
         </div>
 
-        <div className="pt-6">
+
+   {/* shop category listed */}
+
+        <div className="pt-2">
           <h3 className="mb-5 text-xl font-semibold">Shop</h3>
 
           <ul className="space-y-3 text-gray-400">
@@ -45,7 +48,7 @@ const Footer = () => {
         </div>
 
         {/* Support */}
-        <div className="">
+        <div className="pt-2">
           <h3 className="mb-5 text-xl font-semibold">Support</h3>
 
           <ul className="space-y-3 text-gray-400">
@@ -69,7 +72,7 @@ const Footer = () => {
 
         {/* Social */}
         <div>
-          <h3 className="mb-5 text-xl font-semibold">Follow Us</h3>
+          <h3 className="mb-5 pb-2 text-xl font-semibold">Follow Us</h3>
 
           <div className="flex gap-4">
             <button className="rounded-full bg-white/10 p-3 transition duration-300 hover:bg-[var(--color-accent)]">

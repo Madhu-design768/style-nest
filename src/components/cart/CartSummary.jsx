@@ -1,7 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../../context/CartContext";
+import { Link } from "react-router-dom";
 
-const CartSummary = () => {
+
+  const CartSummary = () => {
   const { cartTotal } = useCart();
   const navigate = useNavigate();
 
@@ -20,7 +22,7 @@ const CartSummary = () => {
         <div className=" pt-2 flex items-center justify-between text-sm">
           <span className="text-[var(--color-text)]">Subtotal</span>
           <span className="font-semibold text-[var(--color-heading)]">
-            ${subtotal.toFixed(2)}
+            ₹{subtotal.toFixed(2)}
           </span>
         </div>
         <div className="pt-2 flex items-center justify-between text-sm">
@@ -32,19 +34,19 @@ const CartSummary = () => {
         <div className=" pt-2 flex items-center justify-between text-sm">
           <span className="text-[var(--color-text)]">Estimated Tax</span>
           <span className="font-semibold text-[var(--color-heading)]">
-            ${tax.toFixed(2)}
+            ₹{tax.toFixed(2)}
           </span>
         </div>
         <div className=" pt-2 flex items-center justify-between text-sm">
           <span className="text-[var(--color-text)]">Discount</span>
-          <span className="font-semibold text-green-600">-$0.00</span>
+          <span className="font-semibold text-green-600">-₹0.00</span>
         </div>
 
         <div className="border-t border-[var(--color-border)] pt-4">
           <div className="flex items-center justify-between">
             <span className="text-base font-semibold text-[var(--color-heading)]">Grand Total</span>
             <span className="text-xl font-bold text-[var(--color-accent)]">
-              ${grandTotal.toFixed(2)}
+              ₹{grandTotal.toFixed(2)}
             </span>
           </div>
         </div>

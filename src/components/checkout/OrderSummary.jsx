@@ -44,7 +44,7 @@ const OrderSummary = () => {
                 </div>
               </div>
               <span className="text-sm font-bold text-[var(--color-heading)]">
-                ${(numericPrice * item.quantity).toFixed(2)}
+                ₹{(numericPrice * item.quantity).toFixed(2)}
               </span>
             </div>
           );
@@ -55,7 +55,7 @@ const OrderSummary = () => {
         <div className="flex items-center justify-between text-sm">
           <span className=" pt-2 text-[var(--color-text)]">Subtotal</span>
           <span className="font-semibold text-[var(--color-heading)]">
-            ${subtotal.toFixed(2)}
+            ₹{subtotal.toFixed(2)}
           </span>
         </div>
         <div className="flex items-center justify-between text-sm">
@@ -67,7 +67,7 @@ const OrderSummary = () => {
         <div className="flex items-center justify-between text-sm">
           <span className="pt-2 text-[var(--color-text)]">Estimated Tax</span>
           <span className="font-semibold text-[var(--color-heading)]">
-            ${tax.toFixed(2)}
+            ₹{tax.toFixed(2)}
           </span>
         </div>
 
@@ -77,7 +77,7 @@ const OrderSummary = () => {
               Order Total
             </span>
             <span className="text-xl font-bold text-[var(--color-accent)]">
-              ${grandTotal.toFixed(2)}
+              ₹{grandTotal.toFixed(2)}
             </span>
           </div>
         </div>

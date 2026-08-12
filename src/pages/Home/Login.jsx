@@ -69,20 +69,11 @@ const Login = () => {
     <MainLayout>
       <main className="min-h-screen bg-[var(--color-grad)] px-4 py-8 sm:px-6">
         <h2 className="font-semibold text-3xl pl-2 pt-2">My Account</h2>
-
-        {/* <div className="flex min-h-[calc(100vh-4rem)] items-center justify-center"> */}
         <div className="flex justify-center pt-4">
           <div className="w-full max-w-md">
             <div className="mb-7 text-center">
-              {/* <Link
-              to="/"
-              className="text-3xl pb-4 font-bold text-[var(--color-primary)]"
-            >
-              StyleNest
-            </Link> */}
-
               <h1 className="mt-6 pt-4 pb-4 text-3xl font-bold text-[var(--color-heading)]">
-                Welcome Back
+                Style<span className="text-emerald-950">Next</span>
               </h1>
 
               <p className="mt-2 pb-2 text-sm text-[var(--color-text)]">
@@ -129,7 +120,6 @@ const Login = () => {
                   )}
                 </div>
 
-                {/* Password */}
                 <div className="mt-5">
                   <label
                     htmlFor="password"

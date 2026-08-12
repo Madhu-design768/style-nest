@@ -95,7 +95,7 @@ const Signup = () => {
               to="/"
               className="text-3xl font-bold text-[var(--color-primary)]"
             >
-              StyleNest
+               Style<span className="text-emerald-950">Next</span>
             </Link>
  
 

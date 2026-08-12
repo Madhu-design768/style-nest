@@ -1,4 +1,5 @@
 import { Star, Trash2 } from "lucide-react";
+import MainLayout from "../../layouts/MainLayout";
 
 const WishlistItem = ({ item }) => {
   const { id, name, category, image, price, originalPrice, rating, reviewCount, stockStatus } = item;
@@ -14,6 +15,7 @@ const WishlistItem = ({ item }) => {
   };
 
   return (
+    <MainLayout>
     <div className="rounded-xl border border-[var(--color-border)] bg-white p-4 shadow-sm transition-shadow hover:shadow-md">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
         {/* Product Image */}
@@ -86,6 +88,7 @@ const WishlistItem = ({ item }) => {
         </div>
       </div>
     </div>
+    </MainLayout>
   );
 };
 

@@ -61,7 +61,7 @@ const ProductCard = ({ product, onQuickView }) => {
           onClick={(e) => e.stopPropagation()}
           className="absolute right-3 top-3 rounded-full bg-white p-2.5 shadow-lg transition-all duration-300 hover:bg-[var(--color-accent)] hover:scale-110 hover:shadow-xl"
         >
-          <Heart className="h-5 w-5 text-gray-600 transition-colors group-hover:fill-white group-hover:text-white" />
+          <Heart className="h-5 w-5 text-gray-600 transition-colors group-hover:fill-emerald-900 group-hover:text-white" />
         </button>
 
         {/* Quick View Button */}
@@ -103,17 +103,20 @@ const ProductCard = ({ product, onQuickView }) => {
             ({rating.toFixed(1)})
           </span>
         </div>
+ 
 
         {/* Price */}
         <div className="mt-auto flex items-center gap-2 pt-3">
           <span className="text-xl font-bold text-[var(--color-accent)]">
             ₹{numericPrice.toFixed(0)}
           </span>
-          {numericOriginalPrice && (
+
+          {numericOriginalPrice > numericPrice && (
             <>
               <span className="text-sm text-gray-400 line-through">
                 ₹{numericOriginalPrice.toFixed(0)}
               </span>
+
               <span className="text-xs font-semibold text-green-600">
                 {discount}% OFF
               </span>

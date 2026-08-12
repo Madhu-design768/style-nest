@@ -50,14 +50,28 @@ const Checkout = () => {
   return (
     <MainLayout>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-16">
-        <h1 className="mb-6 pt-6 pb-6 text-2xl font-medium text-[var(--color-heading)]">
-          Checkout
-        </h1>
+        <div className="mb-6 pt-6 pb-6">
+          <h1 className="text-2xl font-medium text-[var(--color-heading)]">
+            Checkout
+          </h1>
+
+          {/* <p className="mt-2 text-sm text-[var(--color-text)]">
+            New User?{" "}
+            <Link
+              to="/login"
+              className="font-medium text-[var(--color-accent)] hover:underline"
+            >
+              Login
+            </Link>
+          </p> */}
+        </div>
 
         <div className="lg:grid lg:grid-cols-3 lg:gap-8">
-  
           <div className="lg:col-span-2">
-            <CheckoutForm onSubmit={handleSubmit} paymentMethod={paymentMethod} />
+            <CheckoutForm
+              onSubmit={handleSubmit}
+              paymentMethod={paymentMethod}
+            />
           </div>
 
           <div className="mt-8 space-y-6 lg:col-span-1 lg:mt-0">
@@ -71,3 +85,10 @@ const Checkout = () => {
 };
 
 export default Checkout;
+
+// <Link
+//   to="/login"
+//   className="text-[var(--color-accent)] font-medium hover:underline"
+// >
+//   New User? Login
+// </Link>

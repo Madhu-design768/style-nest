@@ -5,7 +5,6 @@ const CartItem = ({ item }) => {
 
   return (
     <div className="flex flex-col gap-4 rounded-xl border border-[var(--color-border)] bg-white p-4 sm:flex-row sm:items-center">
-      {/* Product Image */}
       <div className="h-32 w-full overflow-hidden rounded-lg bg-gray-100 sm:h-24 sm:w-24">
         <img
           src={image}
@@ -14,7 +13,6 @@ const CartItem = ({ item }) => {
         />
       </div>
 
-      {/* Product Details */}
       <div className="flex-1">
         <div className="flex items-start justify-between gap-4">
           <div>
@@ -37,7 +35,7 @@ const CartItem = ({ item }) => {
           </button>
         </div>
 
-        {/* Quantity and Price */}
+  
         <div className="mt-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <button
@@ -49,7 +47,7 @@ const CartItem = ({ item }) => {
             <span className="w-8 text-center text-sm font-semibold text-[var(--color-heading)]">
               {quantity}
             </span>
-            <button
+             <button
               type="button"
               className="flex h-8 w-8 items-center justify-center rounded-lg border border-[var(--color-border)] text-[var(--color-text)] transition-colors hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]"
             >

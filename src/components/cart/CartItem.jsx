@@ -12,7 +12,6 @@ const CartItem = ({ item }) => {
 
   return (
     <div className="flex flex-col gap-4 rounded-xl border border-[var(--color-border)] bg-white p-4 sm:flex-row sm:items-center">
-
       <div className="h-32 w-full overflow-hidden rounded-lg bg-gray-100 sm:h-24 sm:w-24">
         <img
           src={image}
@@ -43,7 +42,6 @@ const CartItem = ({ item }) => {
             <Trash2 className="h-4 w-4" />
           </button>
         </div>
-
         <div className="mt-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <button
@@ -56,7 +54,7 @@ const CartItem = ({ item }) => {
             <span className="w-8 text-center text-sm font-semibold text-[var(--color-heading)]">
               {quantity}
             </span>
-            <button
+             <button
               type="button"
               onClick={() => updateQuantity(id, quantity + 1, size, color)}
               className="flex h-8 w-8 items-center justify-center rounded-lg border border-[var(--color-border)] text-[var(--color-text)] transition-colors hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]"

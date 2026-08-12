@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <footer className="bg-[var(--color-primary)] border-t border-white/10  text-white">
       {/* Top Footer */}
-      <div className="mx-auto grid max-w-7xl gap-12 px-4 py-20 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mx-auto pl-8 grid max-w-7xl gap-12 px-4 py-20 sm:grid-cols-2 lg:grid-cols-4">
         {/* Logo */}
         <div>
           <h2 className="text-3xl font-bold">
@@ -19,12 +19,10 @@ const Footer = () => {
 
           <p className="mt-5 leading-7 text-gray-400">
             Discover premium fashion collections crafted for modern lifestyles.
-            Quality, comfort and timeless style.
           </p>
         </div>
 
-        {/* Shop */}
-        <div>
+        <div className="pt-6">
           <h3 className="mb-5 text-xl font-semibold">Shop</h3>
 
           <ul className="space-y-3 text-gray-400">
@@ -47,7 +45,7 @@ const Footer = () => {
         </div>
 
         {/* Support */}
-        <div>
+        <div className="">
           <h3 className="mb-5 text-xl font-semibold">Support</h3>
 
           <ul className="space-y-3 text-gray-400">

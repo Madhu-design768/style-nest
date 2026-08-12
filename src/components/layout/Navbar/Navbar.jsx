@@ -6,6 +6,7 @@ import { navigation } from "../../../data/navigation";
 import { useCart } from "../../../context/CartContext";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
   const location = useLocation();
@@ -13,7 +14,7 @@ const Navbar = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const { cartItems } = useCart();
-  const navigate = useNavigate();
+
 
   useEffect(() => {
     if (isDrawerOpen) {
@@ -178,8 +179,15 @@ const Navbar = () => {
             )}
           </button>
 
-          <button>
-            <User size={22} />
+          <button
+            type="button"
+            onClick={() => navigate("/login")}
+            aria-label="Login"
+          >
+            <User
+              size={22}
+              className="transition-colors hover:text-[var(--color-accent)]"
+            />
           </button>
         </div>
 
